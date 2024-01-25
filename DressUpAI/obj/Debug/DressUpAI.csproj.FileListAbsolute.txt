@@ -1,0 +1,13 @@
+C:\Users\mehme\source\repos\DressUpAI\DressUpAI\obj\Debug\DressUpAI.csproj.AssemblyReference.cache
+C:\Users\mehme\source\repos\DressUpAI\DressUpAI\obj\Debug\DressUpAI.Form1.resources
+C:\Users\mehme\source\repos\DressUpAI\DressUpAI\obj\Debug\DressUpAI.Properties.Resources.resources
+C:\Users\mehme\source\repos\DressUpAI\DressUpAI\obj\Debug\DressUpAI.csproj.GenerateResource.cache
+C:\Users\mehme\source\repos\DressUpAI\DressUpAI\obj\Debug\DressUpAI.csproj.CoreCompileInputs.cache
+C:\Users\mehme\source\repos\DressUpAI\DressUpAI\bin\Debug\DressUpAI.exe.config
+C:\Users\mehme\source\repos\DressUpAI\DressUpAI\bin\Debug\DressUpAI.exe
+C:\Users\mehme\source\repos\DressUpAI\DressUpAI\bin\Debug\DressUpAI.pdb
+C:\Users\mehme\source\repos\DressUpAI\DressUpAI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mehme\source\repos\DressUpAI\DressUpAI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\mehme\source\repos\DressUpAI\DressUpAI\obj\Debug\DressUpAI.csproj.CopyComplete
+C:\Users\mehme\source\repos\DressUpAI\DressUpAI\obj\Debug\DressUpAI.exe
+C:\Users\mehme\source\repos\DressUpAI\DressUpAI\obj\Debug\DressUpAI.pdb

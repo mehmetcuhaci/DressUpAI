@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HuggingFace</name>
+    </assembly>
+    <members>
+        <member name="T:HuggingFace.StringExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HuggingFace.StringExtensions.AsHumanMessage(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HuggingFace.StringExtensions.AsAssistantMessage(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HuggingFace.StringExtensions.AsPrompt(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HuggingFace.StringExtensions.AsPrompt(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HuggingFace.ApiHelpers">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HuggingFace.ApiHelpers.CalculateContextLength(System.String)">
+            <summary>
+            Calculates the maximum number of tokens possible to generate for a model. <br/>
+            According https://huggingface.co/docs/api-inference/detailed_parameters#text-generation-task <br/>
+            </summary>
+            <param name="modelId"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:HuggingFace.HuggingFaceApi">
+            <summary>
+            Class providing methods for API access.
+            </summary>
+        </member>
+        <member name="M:HuggingFace.HuggingFaceApi.#ctor(System.String,System.Net.Http.HttpClient)">
+            <summary>
+            Sets the selected apiKey as a default header for the HttpClient.
+            </summary>
+            <param name="apiKey"></param>
+            <param name="httpClient"></param>
+        </member>
+        <member name="M:HuggingFace.HuggingFaceApi.GenerateTextAsync(System.String,HuggingFace.GenerateTextRequest,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Creates a completion for the provided prompt and parameters.
+            </summary>
+            <param name="modelId">Model ID of the user to get</param>
+            <returns>OK</returns>
+            <exception cref="T:HuggingFace.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="T:HuggingFace.RecommendedModelIds">
+            <summary>
+            Recommended models for HuggingFace.
+            </summary>
+        </member>
+        <member name="F:HuggingFace.RecommendedModelIds.Gpt2">
+            <summary>
+            https://huggingface.co/gpt2 <br/>
+            Pretrained model on English language using a causal language modeling (CLM) objective.
+            It was introduced in this paper and first released at this page. <br/>
+            </summary>
+        </member>
+        <member name="T:HuggingFace.RecommendedModelIds.Llama2">
+            <summary>
+            https://huggingface.co/meta-llama/ <br/>
+            Llama 2 is a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters.
+            This is the repository for the 70B fine-tuned model, optimized for dialogue use cases and converted for the Hugging Face Transformers format.
+            Links to other models can be found in the index at the bottom. <br/>
+            </summary>
+        </member>
+        <member name="T:HuggingFace.RecommendedModelIds.Llama2.Base">
+            <inheritdoc cref="T:HuggingFace.RecommendedModelIds.Llama2"/>
+        </member>
+        <member name="F:HuggingFace.RecommendedModelIds.Llama2.Base._7B">
+            <inheritdoc cref="T:HuggingFace.RecommendedModelIds.Llama2"/>
+        </member>
+        <member name="F:HuggingFace.RecommendedModelIds.Llama2.Base._13B">
+            <inheritdoc cref="T:HuggingFace.RecommendedModelIds.Llama2"/>
+        </member>
+        <member name="F:HuggingFace.RecommendedModelIds.Llama2.Base._70B">
+            <inheritdoc cref="T:HuggingFace.RecommendedModelIds.Llama2"/>
+        </member>
+        <member name="T:HuggingFace.RecommendedModelIds.Llama2.Chat">
+            <inheritdoc cref="T:HuggingFace.RecommendedModelIds.Llama2"/>
+        </member>
+        <member name="F:HuggingFace.RecommendedModelIds.Llama2.Chat._7B">
+            <inheritdoc cref="T:HuggingFace.RecommendedModelIds.Llama2"/>
+        </member>
+        <member name="F:HuggingFace.RecommendedModelIds.Llama2.Chat._13B">
+            <inheritdoc cref="T:HuggingFace.RecommendedModelIds.Llama2"/>
+        </member>
+        <member name="F:HuggingFace.RecommendedModelIds.Llama2.Chat._70B">
+            <inheritdoc cref="T:HuggingFace.RecommendedModelIds.Llama2"/>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequest.Inputs">
+            <summary>
+            The prompt that you want to complete.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequestParameters.Top_k">
+            <summary>
+            Integer to define the top tokens considered within the sample operation to create new text.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequestParameters.Top_p">
+            <summary>
+            Float to define the tokens that are within the sample operation of text generation.
+            <br/>Add tokens in the sample for more probable to least probable until the sum of the probabilities is greater than top_p.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequestParameters.Temperature">
+            <summary>
+            The temperature of the sampling operation.
+            <br/>
+            <br/>1 means regular sampling,
+            <br/>0 means always take the highest score,
+            <br/>100.0 is getting closer to uniform probability.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequestParameters.Repetition_penalty">
+            <summary>
+            The more a token is used within generation the more it is penalized to not be picked in successive generation passes.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequestParameters.Max_new_tokens">
+            <summary>
+            The amount of new tokens to be generated, this does not include the input length it is a estimate of the size of generated text you want.
+            <br/>Each new tokens slows down the request, so look for balance between response times and length of text generated.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequestParameters.Max_time">
+            <summary>
+            The amount of time in seconds that the query should take maximum. Network can cause some overhead so it will be a soft limit. Use that in combination with max_new_tokens for best results.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequestParameters.Return_full_text">
+            <summary>
+            If set to False, the return results will not contain the original query making it easier for prompting.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequestParameters.Num_return_sequences">
+            <summary>
+            The number of proposition you want to be returned.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequestParameters.Do_sample">
+            <summary>
+            Whether or not to use sampling, use greedy decoding otherwise.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequestOptions.Use_cache">
+            <summary>
+            There is a cache layer on the inference API to speedup requests we have already seen. Most models can use those results as is as models are deterministic (meaning the results will be the same anyway). However if you use a non deterministic model, you can set this parameter to prevent the caching mechanism from being used resulting in a real new query.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequestOptions.Wait_for_model">
+            <summary>
+            If the model is not ready, wait for it instead of receiving 503. It limits the number of requests required to get your inference done. It is advised to only set this flag to true after receiving a 503 error as it will limit hanging in your application to known places.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextResponseValue.Generated_text">
+            <summary>
+            The resulting completion up to and excluding the stop sequences.
+            <br/>
+            </summary>
+        </member>
+    </members>
+</doc>

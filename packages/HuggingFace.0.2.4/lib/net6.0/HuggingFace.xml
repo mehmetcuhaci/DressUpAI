@@ -1,0 +1,330 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HuggingFace</name>
+    </assembly>
+    <members>
+        <member name="T:HuggingFace.StringExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HuggingFace.StringExtensions.AsHumanMessage(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HuggingFace.StringExtensions.AsAssistantMessage(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HuggingFace.StringExtensions.AsPrompt(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HuggingFace.StringExtensions.AsPrompt(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HuggingFace.ApiHelpers">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HuggingFace.ApiHelpers.CalculateContextLength(System.String)">
+            <summary>
+            Calculates the maximum number of tokens possible to generate for a model. <br/>
+            According https://huggingface.co/docs/api-inference/detailed_parameters#text-generation-task <br/>
+            </summary>
+            <param name="modelId"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:HuggingFace.HuggingFaceApi">
+            <summary>
+            Class providing methods for API access.
+            </summary>
+        </member>
+        <member name="M:HuggingFace.HuggingFaceApi.#ctor(System.String,System.Net.Http.HttpClient)">
+            <summary>
+            Sets the selected apiKey as a default header for the HttpClient.
+            </summary>
+            <param name="apiKey"></param>
+            <param name="httpClient"></param>
+        </member>
+        <member name="M:HuggingFace.HuggingFaceApi.GenerateTextAsync(System.String,HuggingFace.GenerateTextRequest,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Creates a completion for the provided prompt and parameters.
+            </summary>
+            <param name="modelId">Model ID of the user to get</param>
+            <returns>OK</returns>
+            <exception cref="T:HuggingFace.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="T:HuggingFace.RecommendedModelIds">
+            <summary>
+            Recommended models for HuggingFace.
+            </summary>
+        </member>
+        <member name="F:HuggingFace.RecommendedModelIds.Gpt2">
+            <summary>
+            https://huggingface.co/gpt2 <br/>
+            Pretrained model on English language using a causal language modeling (CLM) objective.
+            It was introduced in this paper and first released at this page. <br/>
+            </summary>
+        </member>
+        <member name="T:HuggingFace.RecommendedModelIds.Llama2">
+            <summary>
+            https://huggingface.co/meta-llama/ <br/>
+            Llama 2 is a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters.
+            This is the repository for the 70B fine-tuned model, optimized for dialogue use cases and converted for the Hugging Face Transformers format.
+            Links to other models can be found in the index at the bottom. <br/>
+            </summary>
+        </member>
+        <member name="T:HuggingFace.RecommendedModelIds.Llama2.Base">
+            <inheritdoc cref="T:HuggingFace.RecommendedModelIds.Llama2"/>
+        </member>
+        <member name="F:HuggingFace.RecommendedModelIds.Llama2.Base._7B">
+            <inheritdoc cref="T:HuggingFace.RecommendedModelIds.Llama2"/>
+        </member>
+        <member name="F:HuggingFace.RecommendedModelIds.Llama2.Base._13B">
+            <inheritdoc cref="T:HuggingFace.RecommendedModelIds.Llama2"/>
+        </member>
+        <member name="F:HuggingFace.RecommendedModelIds.Llama2.Base._70B">
+            <inheritdoc cref="T:HuggingFace.RecommendedModelIds.Llama2"/>
+        </member>
+        <member name="T:HuggingFace.RecommendedModelIds.Llama2.Chat">
+            <inheritdoc cref="T:HuggingFace.RecommendedModelIds.Llama2"/>
+        </member>
+        <member name="F:HuggingFace.RecommendedModelIds.Llama2.Chat._7B">
+            <inheritdoc cref="T:HuggingFace.RecommendedModelIds.Llama2"/>
+        </member>
+        <member name="F:HuggingFace.RecommendedModelIds.Llama2.Chat._13B">
+            <inheritdoc cref="T:HuggingFace.RecommendedModelIds.Llama2"/>
+        </member>
+        <member name="F:HuggingFace.RecommendedModelIds.Llama2.Chat._70B">
+            <inheritdoc cref="T:HuggingFace.RecommendedModelIds.Llama2"/>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequest.Inputs">
+            <summary>
+            The prompt that you want to complete.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequestParameters.Top_k">
+            <summary>
+            Integer to define the top tokens considered within the sample operation to create new text.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequestParameters.Top_p">
+            <summary>
+            Float to define the tokens that are within the sample operation of text generation.
+            <br/>Add tokens in the sample for more probable to least probable until the sum of the probabilities is greater than top_p.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequestParameters.Temperature">
+            <summary>
+            The temperature of the sampling operation.
+            <br/>
+            <br/>1 means regular sampling,
+            <br/>0 means always take the highest score,
+            <br/>100.0 is getting closer to uniform probability.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequestParameters.Repetition_penalty">
+            <summary>
+            The more a token is used within generation the more it is penalized to not be picked in successive generation passes.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequestParameters.Max_new_tokens">
+            <summary>
+            The amount of new tokens to be generated, this does not include the input length it is a estimate of the size of generated text you want.
+            <br/>Each new tokens slows down the request, so look for balance between response times and length of text generated.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequestParameters.Max_time">
+            <summary>
+            The amount of time in seconds that the query should take maximum. Network can cause some overhead so it will be a soft limit. Use that in combination with max_new_tokens for best results.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequestParameters.Return_full_text">
+            <summary>
+            If set to False, the return results will not contain the original query making it easier for prompting.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequestParameters.Num_return_sequences">
+            <summary>
+            The number of proposition you want to be returned.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequestParameters.Do_sample">
+            <summary>
+            Whether or not to use sampling, use greedy decoding otherwise.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequestOptions.Use_cache">
+            <summary>
+            There is a cache layer on the inference API to speedup requests we have already seen. Most models can use those results as is as models are deterministic (meaning the results will be the same anyway). However if you use a non deterministic model, you can set this parameter to prevent the caching mechanism from being used resulting in a real new query.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextRequestOptions.Wait_for_model">
+            <summary>
+            If the model is not ready, wait for it instead of receiving 503. It limits the number of requests required to get your inference done. It is advised to only set this flag to true after receiving a 503 error as it will limit hanging in your application to known places.
+            <br/>
+            </summary>
+        </member>
+        <member name="P:HuggingFace.GenerateTextResponseValue.Generated_text">
+            <summary>
+            The resulting completion up to and excluding the stop sequences.
+            <br/>
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.SetsRequiredMembersAttribute">
+            <summary>
+            Specifies that this constructor sets all required members for the current type,
+            and callers do not need to set any required members themselves.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute">
+            <summary>
+            Specifies the syntax used in a string.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.#ctor(System.String)">
+            <summary>
+            Initializes the <see cref="T:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute"/> with the identifier of the syntax used.
+            </summary>
+            <param name="syntax">The syntax identifier.</param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.#ctor(System.String,System.Object[])">
+            <summary>Initializes the <see cref="T:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute"/> with the identifier of the syntax used.</summary>
+            <param name="syntax">The syntax identifier.</param>
+            <param name="arguments">Optional arguments associated with the specific syntax employed.</param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.Syntax">
+            <summary>Gets the identifier of the syntax used.</summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.Arguments">
+            <summary>Optional arguments associated with the specific syntax employed.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.CompositeFormat">
+            <summary>The syntax identifier for strings containing composite formats for string formatting.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.DateOnlyFormat">
+            <summary>The syntax identifier for strings containing date format specifiers.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.DateTimeFormat">
+            <summary>The syntax identifier for strings containing date and time format specifiers.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.EnumFormat">
+            <summary>The syntax identifier for strings containing <see cref="T:System.Enum"/> format specifiers.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.GuidFormat">
+            <summary>The syntax identifier for strings containing <see cref="T:System.Guid"/> format specifiers.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.Json">
+            <summary>The syntax identifier for strings containing JavaScript Object Notation (JSON).</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.NumericFormat">
+            <summary>The syntax identifier for strings containing numeric format specifiers.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.Regex">
+            <summary>The syntax identifier for strings containing regular expressions.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.TimeOnlyFormat">
+            <summary>The syntax identifier for strings containing time format specifiers.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.TimeSpanFormat">
+            <summary>The syntax identifier for strings containing <see cref="T:System.TimeSpan"/> format specifiers.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.Uri">
+            <summary>The syntax identifier for strings containing URIs.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.Xml">
+            <summary>The syntax identifier for strings containing XML.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.UnscopedRefAttribute">
+            <summary>
+            Used to indicate a byref escapes and is not scoped.
+            </summary>
+            <remarks>
+            <para>
+            There are several cases where the C# compiler treats a <see langword="ref"/> as implicitly
+            <see langword="scoped"/> - where the compiler does not allow the <see langword="ref"/> to escape the method.
+            </para>
+            <para>
+            For example:
+            <list type="number">
+                <item><see langword="this"/> for <see langword="struct"/> instance methods.</item>
+                <item><see langword="ref"/> parameters that refer to <see langword="ref"/> <see langword="struct"/> types.</item>
+                <item><see langword="out"/> parameters.</item>
+            </list>
+            </para>
+            <para>
+            This attribute is used in those instances where the <see langword="ref"/> should be allowed to escape.
+            </para>
+            <para>
+            Applying this attribute, in any form, has impact on consumers of the applicable API. It is necessary for
+            API authors to understand the lifetime implications of applying this attribute and how it may impact their users.
+            </para>
+            </remarks>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute">
+            <summary>
+            Indicates that compiler support for a particular feature is required for the location where this attribute is applied.
+            </summary>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.#ctor(System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute"/> type.
+            </summary>
+            <param name="featureName">The name of the feature to indicate.</param>
+        </member>
+        <member name="P:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.FeatureName">
+            <summary>
+            The name of the compiler feature.
+            </summary>
+        </member>
+        <member name="P:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.IsOptional">
+            <summary>
+            If true, the compiler can choose to allow access to the location where this attribute is applied if it does not understand <see cref="P:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.FeatureName"/>.
+            </summary>
+        </member>
+        <member name="F:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.RefStructs">
+            <summary>
+            The <see cref="P:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.FeatureName"/> used for the ref structs C# feature.
+            </summary>
+        </member>
+        <member name="F:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.RequiredMembers">
+            <summary>
+            The <see cref="P:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.FeatureName"/> used for the required members C# feature.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.RequiredMemberAttribute">
+            <summary>
+            Specifies that a type has required members or that a member is required.
+            </summary>
+        </member>
+    </members>
+</doc>

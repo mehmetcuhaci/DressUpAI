@@ -1,8 +1,13 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using OpenAI.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OpenAI.Extensions;
+using OpenAI;
+
 
 namespace DressUpAI
 {
@@ -16,7 +21,14 @@ namespace DressUpAI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            
+
+
+            Application.Run(new AnaForm());
+
+
+            
         }
     }
 }

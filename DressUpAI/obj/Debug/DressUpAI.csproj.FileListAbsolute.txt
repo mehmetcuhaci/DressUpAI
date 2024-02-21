@@ -58,3 +58,7 @@ C:\Users\mehme\source\repos\DressUpAI\DressUpAI\bin\Debug\OpenAI.xml
 C:\Users\mehme\source\repos\DressUpAI\DressUpAI\bin\Debug\System.Diagnostics.DiagnosticSource.xml
 C:\Users\mehme\source\repos\DressUpAI\DressUpAI\bin\Debug\RestSharp.dll
 C:\Users\mehme\source\repos\DressUpAI\DressUpAI\bin\Debug\RestSharp.xml
+C:\Users\mehme\source\repos\DressUpAI\DressUpAI\bin\Debug\HuggingFace.dll
+C:\Users\mehme\source\repos\DressUpAI\DressUpAI\bin\Debug\Tiktoken.dll
+C:\Users\mehme\source\repos\DressUpAI\DressUpAI\bin\Debug\HuggingFace.xml
+C:\Users\mehme\source\repos\DressUpAI\DressUpAI\bin\Debug\Tiktoken.xml

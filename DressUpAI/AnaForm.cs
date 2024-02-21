@@ -1,5 +1,8 @@
 ﻿using DressUpAI.Models;
 using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Text;
 using System.Windows.Forms;
 
 
@@ -8,12 +11,15 @@ namespace DressUpAI
     public partial class AnaForm : Form
     {
         private WeatherController weatherController;
-        
+
+
         public AnaForm()
         {
             InitializeComponent();
             weatherController = new WeatherController();
             string apiKey = "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";
+            webBrowser1.Navigate("C:\\Users\\mehme\\source\\repos\\DressUpAI\\HTMLPage1.html");
+
 
 
         }
@@ -64,6 +70,40 @@ namespace DressUpAI
 
         private async void button2_Click(object sender, EventArgs e)
         {
+            await CallAPIAndDisplayResponse();
+        }
+
+        private async Task CallAPIAndDisplayResponse()
+        {
+            string url = "https://api.together.xyz/v1/chat/completions";
+            string apiKey = "0ef6d31620e77535119e9c3ec1f21fbf28a91cc051bb4ab21a3d8754e6742f9f";
+
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", apiKey);
+                string jsonContent = "{\"model\":\"mistralai/Mixtral-8x7B-Instruct-v0.1\",\"max_tokens\":1024,\"messages\":[{\"role\":\"system\",\"content\":\"You are an AI assistant\"},{\"role\":\"user\",\"content\":\"Anlık bitcoin fiyatı nedir?\"}]}";
+
+                try
+                {
+                    HttpResponseMessage response = await client.PostAsync(url, new StringContent(jsonContent, Encoding.UTF8, "application/json"));
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string responseContent = await response.Content.ReadAsStringAsync();
+                        MessageBox.Show(responseContent, "API Response");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error: " + response.StatusCode);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+
+
         }
     }
 }

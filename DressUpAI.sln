@@ -5,6 +5,11 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DressUpAI", "DressUpAI\DressUpAI.csproj", "{72AEDDDB-758D-402F-8A18-E4900E1D9FE9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AIModels", "AIModels", "{DAFF357D-37B1-444C-9C66-0816A6636BB2}"
+	ProjectSection(SolutionItems) = preProject
+		AIModel.js = AIModel.js
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
